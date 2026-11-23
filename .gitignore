@@ -5,3 +5,13 @@ node_modules/
 .DS_Store
 hosted-site/
 growvera-deploy.tar.gz
+
+.video-tools/
+
+assets/videos/1025.mp4
+assets/videos/apex-orthopedic-reel-3.mp4
+assets/videos/curetherapist-reel-6.mp4
+assets/videos/dr-shreya-physio-reel.mp4
+assets/videos/sahyog-physio-fit-2.mp4
+assets/videos/sahyog-physio-fit-3.mp4
+assets/videos/whatsapp-showcase.mp4

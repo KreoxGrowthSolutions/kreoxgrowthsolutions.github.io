@@ -1,6 +1,6 @@
-# Growvera Digital
+# Kreox Studio
 
-Responsive static digital marketing website for Growvera Digital, Surat. Warm Ivory (#FFF7E8) backgrounds, Forest Green (#315C4C) text and buttons, Blush Pink (#F2A7B5) accents, Anton headings, Poppins body text, an original animated wireframe globe, service cards, filterable creative concepts, growth plans, about, insights, contact and privacy pages. Twelve HTML pages, with no runtime dependencies. The current palette is applied by palette.css after agency.css.
+Responsive static digital marketing website for Kreox Studio, Surat. Warm Ivory (#FFF7E8) backgrounds, Forest Green (#315C4C) text and buttons, Blush Pink (#F2A7B5) accents, Anton headings, Poppins body text, an original animated wireframe globe, service cards, filterable creative concepts, growth plans, about, insights, contact and privacy pages. Twelve HTML pages, with no runtime dependencies. The current palette is applied by palette.css after agency.css.
 
 ## Preview
 

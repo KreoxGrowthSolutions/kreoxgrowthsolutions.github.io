@@ -10,3 +10,49 @@
 @media(max-width:760px){.gv-services{padding-top:48px}.gv-services-intro{margin-bottom:36px}.gv-services h1{font-size:clamp(36px,8.5vw,58px)}.gv-showcase{padding:24px 16px;margin-bottom:48px;border-radius:18px}.gv-services .gv-showcase h2{font-size:23px}.gv-reels{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:16px;padding:0 0 16px;scrollbar-width:thin;scrollbar-color:#ffee0080 #252525}.gv-reel{flex:0 0 min(240px,82%);scroll-snap-align:start}.gv-grid-heading{display:block}.gv-grid-heading p{margin-top:16px;max-width:none}.gv-services-cta{flex-direction:column;align-items:start;margin-top:48px;padding:44px 0 54px;gap:26px}.gv-contact{width:100%}.gv-service{padding:26px 22px}.gv-kicker{font-size:10px;letter-spacing:1.5px}}
 @media(max-width:600px){.gv-service-grid{grid-template-columns:minmax(0,1fr)}.gv-service p{font-size:15px}.gv-service-tags li{font-size:11px}.gv-service-link{font-size:14px}.gv-services .gv-grid-heading h2{font-size:32px}.gv-service-icon{width:54px;height:54px}}
 @media(prefers-reduced-motion:reduce){.gv-service{transition:none}.gv-service:hover{transform:none}}
+
+/* Growvera palette: warm ivory, forest green and blush pink. */
+.gv-services{--sv-accent:#315c4c;--sv-text:#315c4c;--sv-muted:#577063;background:#fff7e8;color:var(--sv-text)}
+.gv-services em{color:#a65b72}
+.gv-showcase{background:#f8eade;border-color:#315c4c26}
+.gv-badge{background:#f2a7b54d}
+.gv-reel{background:#fffaf0;border-color:#315c4c33}
+.gv-reel-media{background:#f6e7db}
+.gv-video-placeholder{background:radial-gradient(ellipse at 20% 90%,#f2a7b580,transparent 70%),linear-gradient(140deg,#fffaf0,#f8eade)}
+.gv-reel:nth-child(even) .gv-video-placeholder{background:radial-gradient(ellipse at 90% 20%,#f2a7b599,transparent 65%),#f5eedf}
+.gv-reel-category,.gv-coming-soon,.gv-reel-index,.gv-reel-caption{color:#577063}
+.gv-reel-mark{background:#f2a7b54d;border-color:#315c4c33}
+.gv-reel-caption{border-color:#315c4c26}
+.gv-service{position:relative;background:#fffaf0;border-color:#315c4c33}
+.gv-service-icon{background:#f2a7b54d;border-color:#315c4c33}
+.gv-service-number{color:#718476}
+.gv-service-tags li{background:#f2a7b533;border-color:#315c4c33}
+.gv-service-link,.gv-services-cta{border-color:#315c4c33}
+.gv-contact{background:#315c4c;color:#fff7e8}
+.gv-service-anchor{position:absolute;top:0;scroll-margin-top:110px}
+.gv-reels{scrollbar-color:#a65b72 #f8eade}
+@media(hover:hover){.gv-service:hover{border-color:#a65b72;box-shadow:0 14px 35px #315c4c14}.gv-contact:hover{background:#406e59}}
+
+.gv-services{padding-bottom:64px}@media(max-width:760px){.gv-services{padding-bottom:48px}}
+
+.gv-reels-three{grid-template-columns:repeat(3,minmax(0,1fr))}
+.gv-reel video{object-fit:contain;background:#15251f;aspect-ratio:9/16}
+@media(min-width:761px){.gv-reels-three .gv-reel-media{max-height:none}}
+@media(max-width:760px){.gv-reels-three .gv-reel{flex-basis:min(280px,88%)}}
+
+/* Video cards respond to the pointer without obscuring playback controls. */
+.gv-reel{transition:transform 300ms ease,box-shadow 300ms ease,border-color 300ms ease}
+.gv-reel video{transition:transform 300ms ease;transform-origin:center}
+@media(hover:hover) and (pointer:fine){
+  .gv-reel:hover{transform:translateY(-6px);border-color:#a65b72;box-shadow:0 14px 30px #315c4c24}
+  .gv-reel:hover video{transform:scale(1.015)}
+}
+.gv-reel:focus-within{border-color:#a65b72;box-shadow:0 0 0 2px #f2a7b580}
+@media(prefers-reduced-motion:reduce){
+  .gv-reel,.gv-reel video{transition:none}
+  .gv-reel:hover,.gv-reel:hover video{transform:none}
+}
+
+.gv-services-intro{margin-inline:auto;text-align:center}
+.gv-services-intro>.gv-kicker{justify-content:center}
+.gv-services-intro>p{margin-inline:auto}
