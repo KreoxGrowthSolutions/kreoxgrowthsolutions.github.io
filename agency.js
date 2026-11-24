@@ -30,3 +30,4 @@ for(const video of document.querySelectorAll('.ab-timeline-video')){
  new IntersectionObserver(entries=>{if(entries[0].isIntersecting&&!reduced.matches&&!document.hidden)video.play().catch(()=>{});else video.pause()},{threshold:.3}).observe(video);
  document.addEventListener('visibilitychange',()=>{if(document.hidden)video.pause()});
 }
+

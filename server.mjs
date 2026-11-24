@@ -3,7 +3,7 @@ import {readFile,stat} from 'node:fs/promises';
 import {createReadStream} from 'node:fs';
 import path from 'node:path';
 const root=process.cwd();
-const types={'.html':'text/html; charset=utf-8','.css':'text/css','.js':'text/javascript','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.mp4':'video/mp4','.jpg':'image/jpeg','.jpeg':'image/jpeg'};
+const types={'.txt':'text/plain; charset=utf-8','.xml':'application/xml; charset=utf-8','.html':'text/html; charset=utf-8','.css':'text/css','.js':'text/javascript','.svg':'image/svg+xml','.png':'image/png','.webp':'image/webp','.mp4':'video/mp4','.jpg':'image/jpeg','.jpeg':'image/jpeg'};
 http.createServer(async(req,res)=>{try{
  const url=new URL(req.url,'http://localhost');
  const relative=url.pathname==='/'?'index.html':decodeURIComponent(url.pathname).replace(/^\/+/, '');

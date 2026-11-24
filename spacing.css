@@ -78,3 +78,22 @@ main .article-body>h2:first-child{margin-top:0}
 #what-we-do .marketing-service-card{scroll-margin-top:150px}
 #what-we-do .marketing-service-card:target{z-index:7;outline:2px solid #a65b72;outline-offset:5px}
 @media(max-width:760px){#what-we-do .marketing-service-card{scroll-margin-top:110px}}
+
+#our-story .founder-phone-visual>.home-editor-image{width:100%;max-width:100%;height:100%;object-fit:contain;animation:none;filter:drop-shadow(0 12px 16px #315c4c18)}
+
+/* Home story character: larger, centered and slightly lower. */
+@media(min-width:761px){
+  #our-story>.founder-visual.founder-phone-visual{
+    max-width:530px;width:100%;justify-self:center;align-self:center;
+    margin-top:32px;margin-bottom:0;padding-bottom:42px;
+  }
+  #our-story .founder-phone-visual>.home-editor-image{width:108%;max-width:108%;height:108%;object-fit:contain}
+}
+@media(max-width:760px){
+  #our-story>.founder-visual.founder-phone-visual{max-width:480px;justify-self:center;margin-top:14px}
+  #our-story .founder-phone-visual>.home-editor-image{width:100%;max-width:100%;height:100%}
+}
+
+#our-story>.founder-visual.founder-phone-visual{padding-bottom:0;margin-bottom:0;aspect-ratio:auto;height:500px}
+#our-story .founder-phone-visual>.home-editor-image{width:100%;max-width:100%;height:100%;object-fit:contain}
+@media(max-width:760px){#our-story>.founder-visual.founder-phone-visual{height:auto;aspect-ratio:1186/1280;max-height:460px;margin-top:0}}

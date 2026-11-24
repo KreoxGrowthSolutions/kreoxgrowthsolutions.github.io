@@ -43,3 +43,10 @@ for (const page of readdirSync('.').filter(name => name.endsWith('.html'))) {
   });
   writeFileSync(page, html);
 }
+
+// Search-engine discovery files use the public production domain.
+const siteOrigin='https://kreoxgrowthsolutions.github.io';
+const sitemapPages=readdirSync('.').filter(name=>name.endsWith('.html')&&!['404.html','thanks.html'].includes(name)).sort();
+const sitemapUrls=sitemapPages.map(page=>siteOrigin+(page==='index.html'?'/':'/'+page));
+writeFileSync('robots.txt',`User-agent: *\nAllow: /\n\nSitemap: ${siteOrigin}/sitemap.xml\n`);
+writeFileSync('sitemap.xml',`<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapUrls.map(url=>`  <url><loc>${url}</loc></url>`).join('\n')}\n</urlset>\n`);
