@@ -1,0 +1,80 @@
+/* Shared spacing scale. Loaded last so every page uses the same rhythm. */
+:root{--section-space:40px;--section-gap:28px}
+main .section,.about-reference .ab-section,
+main .page-intro,.about-reference .ab-hero,
+main .contact-grid,main .journal-grid,main .article-body,
+main .service-detail-list,main .concepts,main .agency-closing,
+.about-reference .ab-collaborate{padding-block:var(--section-space)}
+main .studio-hero{padding-top:var(--section-space)}
+main .gv-services{padding-block:var(--section-space)}
+main .gv-services-intro{margin-bottom:var(--section-space)}
+main .gv-showcase{margin-bottom:0}
+main .agency-section-head,main .section-head,
+.about-reference .ab-section-head{margin-bottom:var(--section-gap)}
+main .agency-process{margin-top:var(--section-gap)}
+main .all-services-action{margin-top:var(--section-gap)}
+main .cta{margin-block:var(--section-gap) var(--section-space);padding:32px}
+main .concept{margin-bottom:var(--section-space)}
+main .concept:last-child{margin-bottom:0}
+main .service-detail{padding-block:32px}
+main .article-body>h2{margin-top:var(--section-gap)}
+main .article-body>h2:first-child{margin-top:0}
+.site-footer .footer-columns{padding-block:var(--section-space)}
+@media(max-width:760px){
+  :root{--section-space:28px;--section-gap:22px}
+  main .cta{padding:24px}
+  main .service-detail{padding-block:26px}
+}
+
+/* Fanned service cards in the Kreox brand palette. */
+#what-we-do .marketing-service-grid{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;
+  max-width:1120px;margin:58px auto 44px;padding:0 22px;
+  align-items:stretch;isolation:isolate;
+}
+#what-we-do .marketing-service-card{
+  --card-turn:0deg;position:relative;display:flex;flex-direction:column;
+  width:calc(100% + 18px);min-width:0;min-height:390px;
+  padding:28px 25px;border:1px solid #315c4c24;border-radius:12px;
+  background:#dce4d4;color:#315c4c;
+  transform:rotate(var(--card-turn));transform-origin:50% 85%;
+  box-shadow:0 12px 28px #315c4c24;
+  transition:transform 300ms ease,box-shadow 300ms ease;
+}
+#what-we-do .marketing-service-card:nth-child(1){--card-turn:-8deg;z-index:1;background:#dce4d4}
+#what-we-do .marketing-service-card:nth-child(2){--card-turn:-3deg;z-index:2;background:#f7d5db}
+#what-we-do .marketing-service-card:nth-child(3){--card-turn:2deg;z-index:3;background:#315c4c;color:#fff7e8}
+#what-we-do .marketing-service-card:nth-child(4){--card-turn:8deg;z-index:4;background:#f2a7b5}
+#what-we-do .marketing-service-card h3{font:600 20px/1.35 Poppins,Arial,sans-serif!important;letter-spacing:-.5px!important;color:inherit;margin:0 0 15px}
+#what-we-do .marketing-service-card p{font-size:14px;line-height:1.8;color:inherit;margin:0 0 20px}
+#what-we-do .marketing-service-card .agency-icon{width:44px;height:44px;margin-bottom:20px;color:inherit;background:#fff7e84d;border:1px solid #315c4c24;border-radius:10px;display:grid;place-items:center}
+#what-we-do .marketing-service-card .agency-icon svg{width:24px;height:24px}
+#what-we-do .marketing-service-card .agency-tags{display:none}
+#what-we-do .marketing-service-card .agency-card-link{
+  display:inline-flex;align-items:center;justify-content:center;align-self:flex-start;
+  margin-top:auto;min-height:40px;padding:9px 17px;border-radius:999px;
+  background:#315c4c;color:#fff7e8;font-size:11px;font-weight:600;
+}
+#what-we-do .marketing-service-card:nth-child(3) .agency-card-link{background:#fff7e8;color:#315c4c}
+#what-we-do .marketing-service-card:nth-child(3) .agency-icon{border-color:#fff7e84d;background:#fff7e814}
+@media(hover:hover){
+  #what-we-do .marketing-service-card:hover{transform:translateY(-16px) rotate(0deg);z-index:6;box-shadow:0 20px 38px #315c4c33}
+}
+#what-we-do .marketing-service-card:focus-visible{transform:translateY(-10px) rotate(0deg);z-index:6;outline:3px solid #a65b72;outline-offset:5px}
+@media(max-width:1024px){
+  #what-we-do .marketing-service-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;max-width:760px;margin:36px auto;padding:0}
+  #what-we-do .marketing-service-card{width:100%;min-height:350px;--card-turn:0deg!important}
+}
+@media(max-width:560px){
+  #what-we-do .marketing-service-grid{grid-template-columns:minmax(0,1fr);gap:20px;margin:26px auto;max-width:400px}
+  #what-we-do .marketing-service-card{min-height:310px;padding:25px}
+  #what-we-do .marketing-service-card p{font-size:15px}
+}
+@media(prefers-reduced-motion:reduce){
+  #what-we-do .marketing-service-card{transition:none}
+  #what-we-do .marketing-service-card:hover,#what-we-do .marketing-service-card:focus-visible{transform:rotate(var(--card-turn))}
+}
+
+#what-we-do .marketing-service-card{scroll-margin-top:150px}
+#what-we-do .marketing-service-card:target{z-index:7;outline:2px solid #a65b72;outline-offset:5px}
+@media(max-width:760px){#what-we-do .marketing-service-card{scroll-margin-top:110px}}

@@ -23,3 +23,10 @@ function draw(){if(!width||!height)return;context.clearRect(0,0,width,height);co
 function frame(time){animation=0;if(!visible||document.hidden||reducedMotion.matches)return;if(time-lastTime>33){angle+=.003;draw();lastTime=time}animation=requestAnimationFrame(frame)}
 function updateAnimation(){if(animation)cancelAnimationFrame(animation);animation=0;if(visible&&!document.hidden&&!reducedMotion.matches)animation=requestAnimationFrame(frame);else draw()}
 new ResizeObserver(resize).observe(canvas);new IntersectionObserver(entries=>{visible=entries[0].isIntersecting;updateAnimation()}).observe(canvas);document.addEventListener('visibilitychange',updateAnimation);reducedMotion.addEventListener('change',updateAnimation);resize();updateAnimation()}}
+
+
+for(const video of document.querySelectorAll('.ab-timeline-video')){
+ const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+ new IntersectionObserver(entries=>{if(entries[0].isIntersecting&&!reduced.matches&&!document.hidden)video.play().catch(()=>{});else video.pause()},{threshold:.3}).observe(video);
+ document.addEventListener('visibilitychange',()=>{if(document.hidden)video.pause()});
+}

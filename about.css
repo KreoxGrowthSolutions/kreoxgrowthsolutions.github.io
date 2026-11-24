@@ -110,3 +110,145 @@
   .about-reference .ab-wide>.ui-icon{width:27px;height:27px}
   .about-reference .ab-editing-preview{gap:14px}
 }
+
+/* Brand pill CTA with a separate circular arrow. */
+a.button.pill-cta{
+  display:inline-flex;align-items:center;justify-content:space-between;gap:18px;
+  min-height:50px;padding:7px 8px 7px 24px;border:0;border-radius:999px;
+  background:linear-gradient(110deg,#47745e,#315c4c)!important;color:#fff7e8!important;
+  box-shadow:0 5px 14px #315c4c24;font-size:13px;font-weight:700;
+  transition:transform 300ms ease,box-shadow 300ms ease;
+}
+a.button.pill-cta .pill-cta-label{font:inherit;line-height:1.4;letter-spacing:.5px;text-transform:uppercase}
+a.button.pill-cta .pill-cta-icon{display:flex;align-items:center;justify-content:center;width:34px;height:34px;flex:none;border-radius:50%;background:#f2a7b5;color:#315c4c;font:700 23px/1 Arial,sans-serif;transition:transform 300ms ease}
+a.button.pill-cta.footer-quote{background:linear-gradient(110deg,#f5bdc7,#f2a7b5)!important;color:#315c4c!important}
+a.button.pill-cta.footer-quote .pill-cta-icon{background:#fff7e8}
+@media(hover:hover){a.button.pill-cta:hover{transform:translateY(-2px);box-shadow:0 8px 20px #315c4c33}a.button.pill-cta:hover .pill-cta-icon{transform:translateX(2px)}}
+@media(max-width:480px){a.button.pill-cta{font-size:12px;padding-left:19px;gap:12px}a.button.pill-cta .pill-cta-icon{width:32px;height:32px}}
+@media(prefers-reduced-motion:reduce){a.button.pill-cta,a.button.pill-cta .pill-cta-icon{transition:none}a.button.pill-cta:hover,a.button.pill-cta:hover .pill-cta-icon{transform:none}}
+
+/* Text-only gradient CTAs. */
+a.button.pill-cta{justify-content:center;gap:0;padding:14px 25px}
+.all-services-action>a.outline-button{
+  display:inline-flex;align-items:center;justify-content:center;
+  background:linear-gradient(110deg,#47745e,#315c4c)!important;
+  color:#fff7e8!important;border:0;border-radius:999px;
+  min-height:50px;padding:15px 28px;box-shadow:0 5px 14px #315c4c24;
+}
+.all-services-action>a.outline-button:hover{background:linear-gradient(110deg,#547f69,#3b6956)!important;color:#fff7e8!important}
+@media(max-width:480px){.all-services-action>a.outline-button{width:100%;padding:14px 18px;font-size:14px;line-height:1.5}}
+
+/* Consistent section rhythm across the website. */
+main .section{padding-block:48px}
+.about-reference .ab-section{padding-block:48px}
+main .agency-closing{padding-block:52px}
+.about-reference .ab-collaborate{padding-block:44px}
+.gv-services{padding-top:52px;padding-bottom:48px}
+.gv-services-intro{margin-bottom:36px}
+.gv-showcase{margin-bottom:0}
+main .agency-section-head,main .section-head{margin-bottom:32px}
+@media(min-width:761px){
+  main .founder-section{align-items:start}
+  main .founder-section>.founder-visual.founder-phone-visual{max-width:480px;margin-bottom:0}
+}
+@media(max-width:760px){
+  main .section,.about-reference .ab-section{padding-block:32px}
+  main .agency-closing{padding-block:38px}
+  .about-reference .ab-collaborate{padding-block:32px}
+  .gv-services{padding-top:36px;padding-bottom:32px}
+  .gv-services-intro{margin-bottom:28px}
+  main .agency-section-head,main .section-head{margin-bottom:26px}
+}
+
+.home-capabilities .ab-brand-image{margin-top:26px;border-radius:12px;overflow:hidden;background:#fff7e85c}
+.home-capabilities .ab-brand-image img{display:block;width:100%;height:240px;object-fit:cover;object-position:center}
+.home-capabilities .ab-reel-frame{width:112px;height:170px;padding:0;overflow:hidden;transform:none;border-color:#fff7e84d;background:#244638}
+.home-capabilities .ab-studio-video{display:block;width:100%;height:100%;object-fit:contain}
+.home-capabilities .ab-editing-preview{margin-block:18px}
+.home-capabilities .ab-playhead{animation:none;left:0;transition:none}
+.home-capabilities .ab-studio-toggle{margin-top:16px;border:1px solid #fff7e866;border-radius:999px;padding:8px 16px;min-height:40px;background:#fff7e8;color:#315c4c;font-size:12px;font-weight:600;cursor:pointer}
+@media(max-width:420px){.home-capabilities .ab-brand-image img{height:210px}.home-capabilities .ab-reel-frame{width:96px;height:150px}}
+
+.home-capabilities .ab-editing-film{margin-top:24px;border:1px solid #fff7e838;border-radius:12px;overflow:hidden;background:#244638}
+.home-capabilities .ab-timeline-video{display:block;width:100%;height:auto;aspect-ratio:704/710;object-fit:contain}
+
+.home-capabilities .ab-brand-image{background:transparent;border-radius:0;overflow:visible;margin-top:30px}
+.home-capabilities .ab-brand-image img{width:100%;height:auto;max-height:none;object-fit:contain;filter:drop-shadow(0 10px 14px #315c4c14)}
+@media(max-width:420px){.home-capabilities .ab-brand-image img{height:auto}}
+
+/* Compact capability media without stretching the opposite card. */
+.home-capabilities .ab-feature-grid{align-items:start}
+.home-capabilities .ab-feature.ab-brand,
+.home-capabilities .ab-feature.ab-social{min-height:0}
+.home-capabilities .ab-editing-film{
+  width:min(100%,340px);margin:22px auto 0;border:0;
+  border-radius:14px;overflow:hidden;background:transparent;
+  clip-path:inset(2px round 14px);
+}
+.home-capabilities .ab-timeline-video{
+  display:block;width:100%;height:auto;aspect-ratio:704/710;
+  object-fit:cover;background:transparent;
+}
+.home-capabilities .ab-brand-image{margin-top:24px}
+.home-capabilities .ab-feature.ab-brand{padding-bottom:28px}
+@media(max-width:760px){
+  .home-capabilities .ab-editing-film{width:min(100%,300px)}
+}
+
+/* Use the card's width while preserving the video proportions. */
+.home-capabilities .ab-editing-film{width:100%;max-width:none;margin:22px 0 0}
+.home-capabilities .ab-timeline-video{width:100%;height:auto;aspect-ratio:auto;object-fit:contain}
+@media(max-width:760px){.home-capabilities .ab-editing-film{width:100%;max-width:none}}
+
+/* Balance the two capability cards with matching media rows. */
+@media(min-width:761px){
+  .home-capabilities .ab-feature-grid{align-items:stretch}
+  .home-capabilities .ab-feature.ab-brand,
+  .home-capabilities .ab-feature.ab-social{
+    display:grid;grid-template-rows:40px 64px 110px 290px;
+    align-content:start;padding:30px;min-height:0;
+  }
+  .home-capabilities .ab-feature>.ui-icon{margin:0}
+  .home-capabilities .ab-feature h3{margin:8px 0 0;line-height:1.4}
+  .home-capabilities .ab-feature p{margin:0;align-self:start}
+  .home-capabilities .ab-brand-image,
+  .home-capabilities .ab-editing-film{
+    width:100%;height:290px;margin:16px 0 0;align-self:start;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .home-capabilities .ab-brand-image img{width:100%;height:100%;object-fit:contain;max-height:290px}
+  .home-capabilities .ab-timeline-video{width:auto;max-width:100%;height:100%;aspect-ratio:auto;object-fit:contain;border-radius:12px}
+  .home-capabilities .ab-editing-film{clip-path:none;border-radius:12px}
+}
+@media(min-width:761px) and (max-width:1050px){
+  .home-capabilities .ab-feature.ab-brand,
+  .home-capabilities .ab-feature.ab-social{grid-template-rows:40px 90px 145px 260px;padding:25px}
+  .home-capabilities .ab-brand-image,.home-capabilities .ab-editing-film{height:260px}
+}
+
+/* Let text determine its height; reserve matching space only for media. */
+@media(min-width:761px){
+  .home-capabilities .ab-feature.ab-brand,
+  .home-capabilities .ab-feature.ab-social{
+    display:flex;flex-direction:column;align-items:stretch;
+    grid-template-rows:none;gap:0;padding:30px;min-height:0;
+  }
+  .home-capabilities .ab-feature.ab-brand>.ui-icon,
+  .home-capabilities .ab-feature.ab-social>.ui-icon{margin:0 0 20px;flex:none}
+  .home-capabilities .ab-feature.ab-brand h3,
+  .home-capabilities .ab-feature.ab-social h3{margin:0 0 14px;line-height:1.45;min-height:0}
+  .home-capabilities .ab-feature.ab-brand>p,
+  .home-capabilities .ab-feature.ab-social>p{margin:0 0 24px;line-height:1.85;align-self:auto}
+  .home-capabilities .ab-brand-image,
+  .home-capabilities .ab-editing-film{
+    flex:none;height:290px;min-height:0;margin: auto 0 0;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .home-capabilities .ab-brand-image img{height:100%;max-height:290px;object-fit:contain}
+  .home-capabilities .ab-timeline-video{height:100%;width:auto;max-width:100%;object-fit:contain}
+}
+@media(min-width:761px) and (max-width:1050px){
+  .home-capabilities .ab-feature.ab-brand,
+  .home-capabilities .ab-feature.ab-social{padding:25px}
+  .home-capabilities .ab-brand-image,.home-capabilities .ab-editing-film{height:260px}
+}
