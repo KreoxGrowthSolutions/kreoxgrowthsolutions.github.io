@@ -1,1 +1,1 @@
-{"name":"kreox-studio","private":true,"version":"1.0.0","type":"module","scripts":{"build":"node build.mjs","start":"node server.mjs","check":"node check.mjs"}}
+{"name":"kreox-growth-solution","private":true,"version":"1.0.0","type":"module","scripts":{"build":"node build.mjs","start":"node server.mjs","check":"node check.mjs"}}

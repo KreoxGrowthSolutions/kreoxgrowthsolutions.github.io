@@ -1,6 +1,6 @@
-# Kreox Studio
+# Kreox Growth Solution
 
-Responsive static digital marketing website for Kreox Studio, Surat. Warm Ivory (#FFF7E8) backgrounds, Forest Green (#315C4C) text and buttons, Blush Pink (#F2A7B5) accents, Anton headings, Poppins body text, an original animated wireframe globe, service cards, filterable creative concepts, growth plans, about, insights, contact and privacy pages. Twelve HTML pages, with no runtime dependencies. The current palette is applied by palette.css after agency.css.
+Responsive static digital marketing website for Kreox Growth Solution, Surat. Warm Ivory (#FFF7E8) backgrounds, Forest Green (#315C4C) text and buttons, Blush Pink (#F2A7B5) accents, Anton headings, Poppins body text, an original animated wireframe globe, service cards, filterable creative concepts, growth plans, about, insights, contact and privacy pages. Twelve HTML pages, with no runtime dependencies. The current palette is applied by palette.css after agency.css.
 
 ## Preview
 
@@ -29,4 +29,4 @@ Business email supplied and confirmed by the owner: **growveradigitall@gmail.com
 
 Save in VS Code, commit the desired files and push to origin/main. Saving a file alone does not upload it to GitHub. The repository is public with the owner's approval. GitHub Pages publishes the root of main automatically after a successful build.
 
-Live website: https://growveradigitall.github.io/Growveradigital/
+Live website: https://kreoxgrowthsolutions.github.io/

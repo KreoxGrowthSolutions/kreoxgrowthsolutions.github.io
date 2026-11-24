@@ -21,3 +21,7 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-top:110p
 header #navigation>a:not(.button){font-size:15px}header #navigation>.button{font-size:13px}@media(max-width:1024px){header #navigation>a:not(.button){font-size:17px}header #navigation>.button{font-size:15px}}
 @media(hover:none){.button:hover,.outline-button:hover,.agency-service-card:hover,.creative-concept:hover .concept-screen{transform:none}}
 @media(max-height:500px) and (orientation:landscape){.agency-hero{padding-top:30px}.nav-wrap{height:64px}header #navigation{top:64px;max-height:calc(100dvh - 64px)}html{scroll-padding-top:80px}}
+
+/* Fit the full brand descriptor in the desktop and mobile wordmark. */
+.brand .brand-sub{font-size:8px;letter-spacing:1.6px;line-height:1.7}
+@media(max-width:480px){.nav-wrap .brand .brand-sub{font-size:7px;letter-spacing:1px}}
