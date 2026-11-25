@@ -116,3 +116,11 @@ if(slidingContact&&'IntersectionObserver' in window&&Element.prototype.animate){
   preference.addEventListener('change',finish,{once:true});
  }
 }
+
+// Reveal each terms card once as it enters view.
+if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+ const cards=[...document.querySelectorAll('.terms-card')];
+ const observer=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting){entry.target.classList.add('is-visible');observer.unobserve(entry.target)}}},{threshold:0,rootMargin:'0px 0px -20px 0px'});
+ for(const card of cards){card.classList.add('terms-reveal');observer.observe(card);card.addEventListener('focusin',()=>{card.classList.add('is-visible');observer.unobserve(card)})}
+ matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',()=>{observer.disconnect();cards.forEach(card=>card.classList.add('is-visible'))},{once:true});
+}

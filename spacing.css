@@ -307,3 +307,23 @@ body[data-page="privacy.html"] .page-intro>p{margin-inline:auto}
 /* Contain the form entrance without horizontal page scrolling. */
 main:has(#enquiry-form){overflow-x:clip}
 #enquiry-form{min-width:0}
+
+/* Balanced reference-style header in the existing brand colours. */
+@media(min-width:1025px){
+  header .nav-wrap{display:grid;grid-template-columns:minmax(170px,1fr) auto minmax(145px,1fr);align-items:center;gap:26px;height:96px}
+  header .nav-wrap>.brand{justify-self:start}
+  header .nav-wrap .brand-logo{width:215px}
+  header #navigation{display:flex;justify-content:center;gap:28px}
+  header #navigation>a:not(.button){font-size:14px;font-weight:600;white-space:nowrap}
+  header .header-quote{justify-self:end;min-width:140px;min-height:46px}
+}
+header .header-quote{background:linear-gradient(110deg,#f5bdc7,#f2a7b5)!important;color:#315c4c!important}
+@media(min-width:1025px) and (max-width:1200px){header .nav-wrap{gap:18px;grid-template-columns:190px auto 125px}header .nav-wrap .brand-logo{width:190px}header #navigation{gap:19px}header #navigation>a:not(.button){font-size:13px}header .header-quote{min-width:125px}}
+@media(max-width:1024px){
+  header .nav-wrap{display:flex;justify-content:space-between}
+  header .header-quote{display:none!important}
+  header .menu-toggle{margin-left:auto}
+}
+
+@media(min-width:1025px){header #navigation>a:not(.button){font-size:16px}}
+@media(min-width:1025px) and (max-width:1200px){header #navigation{gap:17px}header #navigation>a:not(.button){font-size:15px}}
