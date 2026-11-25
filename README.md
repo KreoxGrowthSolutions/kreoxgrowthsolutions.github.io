@@ -29,4 +29,4 @@ Business email supplied and confirmed by the owner: **kreoxgrowthsolution@gmail.
 
 Save in VS Code, commit the desired files and push to origin/main. Saving a file alone does not upload it to GitHub. The repository is public with the owner's approval. GitHub Pages publishes the root of main automatically after a successful build.
 
-Live website: https://kreoxgrowthsolutions.github.io/
+Live website: https://kreoxgrowthsolution.github.io/

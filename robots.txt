@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://kreoxgrowthsolutions.github.io/sitemap.xml
+Sitemap: https://kreoxgrowthsolution.github.io/sitemap.xml
