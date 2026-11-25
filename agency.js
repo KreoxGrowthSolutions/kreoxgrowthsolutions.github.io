@@ -31,3 +31,88 @@ for(const video of document.querySelectorAll('.ab-timeline-video')){
  document.addEventListener('visibilitychange',()=>{if(document.hidden)video.pause()});
 }
 
+
+// Mobile carousel controls follow the same card spacing as swipe navigation.
+for(const carousel of document.querySelectorAll('.gv-showcase')){
+ const track=carousel.querySelector('.gv-reels');
+ const previous=carousel.querySelector('.gv-reel-prev');
+ const next=carousel.querySelector('.gv-reel-next');
+ if(!track||!previous||!next)continue;
+ const update=()=>{previous.disabled=track.scrollLeft<=2;next.disabled=track.scrollLeft+track.clientWidth>=track.scrollWidth-2};
+ const move=direction=>{const card=track.querySelector('.gv-reel');if(!card)return;const step=card.getBoundingClientRect().width+(parseFloat(getComputedStyle(track).columnGap)||16);track.scrollBy({left:direction*step,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'})};
+ previous.addEventListener('click',()=>move(-1));next.addEventListener('click',()=>move(1));
+ track.addEventListener('scroll',update,{passive:true});new ResizeObserver(update).observe(track);update();
+}
+
+// Reveal each home FAQ as it enters the viewport, keeping content available without JS.
+if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches){
+ const faqObserver=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting){entry.target.classList.add('is-visible');faqObserver.unobserve(entry.target)}}},{threshold:.12,rootMargin:'0px 0px -15px 0px'});
+ for(const row of document.querySelectorAll('.agency-faq .faq details')){row.classList.add('faq-enter');faqObserver.observe(row)}
+}
+
+// Reveal home content once when scrolled into view; no layout changes or card rotation overrides.
+if(document.body.dataset.page==='index.html'&&'IntersectionObserver' in window){
+ const preference=matchMedia('(prefers-reduced-motion: reduce)');
+ if(!preference.matches){
+  const targets=document.querySelectorAll('.agency-stats, .agency-services>.agency-section-head, .marketing-service-grid, .all-services-action, .home-capabilities .ab-section-head, .home-capabilities .ab-feature, .founder-copy, #our-story>.founder-visual, .agency-method .agency-section-head, .agency-plans>.agency-section-head, .agency-plans .fixed-package, #creative-connection>div, .agency-faq>.agency-section-head, .agency-contact-layout>div, main>.agency-closing');
+  const observer=new IntersectionObserver(entries=>{for(const entry of entries){if(entry.isIntersecting){entry.target.classList.add('is-revealed');observer.unobserve(entry.target)}}},{threshold:0,rootMargin:'0px 0px -25px 0px'});
+  for(const element of targets){
+   if(element.getBoundingClientRect().top<innerHeight){continue}
+   element.classList.add('home-scroll-reveal');observer.observe(element);
+  }
+  const revealAll=()=>{observer.disconnect();for(const element of targets)element.classList.add('is-revealed')};
+  preference.addEventListener('change',revealAll,{once:true});
+  document.addEventListener('focusin',event=>{const element=event.target.closest('.home-scroll-reveal');if(element){element.classList.add('is-revealed');observer.unobserve(element)}});
+ }
+}
+
+const backTop=document.querySelector('.back-to-top');
+if(backTop){
+ const ring=backTop.querySelector('.back-top-progress');let queued=false;
+ const update=()=>{queued=false;const distance=document.documentElement.scrollHeight-innerHeight;const progress=distance>0?Math.min(1,Math.max(0,scrollY/distance)):0;backTop.hidden=scrollY<250;ring.style.strokeDashoffset=String(100-progress*100)};
+ const requestUpdate=()=>{if(!queued){queued=true;requestAnimationFrame(update)}};
+ addEventListener('scroll',requestUpdate,{passive:true});addEventListener('resize',requestUpdate);addEventListener('load',requestUpdate);
+ new ResizeObserver(requestUpdate).observe(document.body);
+ backTop.addEventListener('click',()=>{window.scrollTo({top:0,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});document.querySelector('.skip')?.focus({preventScroll:true})});
+ update();
+}
+
+// One ordered sequence: number + text, then the line, then the following step.
+for(const process of document.querySelectorAll('.agency-process')){
+ if(!('IntersectionObserver' in window))continue;
+ const reduced=matchMedia('(prefers-reduced-motion: reduce)');
+ if(reduced.matches)continue;
+ const steps=[...process.querySelectorAll('article')];const timers=[];
+ process.classList.add('process-sequence');
+ const finish=()=>{timers.forEach(clearTimeout);steps.forEach(step=>step.classList.add('step-visible','line-visible'))};
+ const observer=new IntersectionObserver(entries=>{if(!entries[0].isIntersecting)return;observer.disconnect();steps.forEach((step,i)=>{
+  timers.push(setTimeout(()=>step.classList.add('step-visible'),i*1000));
+  if(i<steps.length-1)timers.push(setTimeout(()=>step.classList.add('line-visible'),i*1000+480));
+ })},{threshold:.12});observer.observe(process);
+ reduced.addEventListener('change',()=>{observer.disconnect();finish()},{once:true});
+ process.addEventListener('focusin',finish);
+}
+
+// Observe the stationary layout, then animate the form from the right.
+const slidingContact=document.querySelector('#enquiry-form');
+if(slidingContact&&'IntersectionObserver' in window&&Element.prototype.animate){
+ const preference=matchMedia('(prefers-reduced-motion: reduce)');
+ if(!preference.matches){
+  let animation,started=false;
+  const layout=slidingContact.closest('.contact-grid,.agency-contact-layout')||slidingContact;
+  const play=()=>{
+   if(started)return;started=true;
+   const offset=Math.min(220,innerWidth*.4);
+   animation=slidingContact.animate([
+    {opacity:0,transform:'translateX('+offset+'px)'},
+    {opacity:1,transform:'translateX(0)'}
+   ],{duration:1250,delay:180,easing:'cubic-bezier(.22,.61,.36,1)',fill:'both'});
+   animation.onfinish=()=>animation.cancel();
+  };
+  const observer=new IntersectionObserver(entries=>{if(entries[0].isIntersecting){observer.disconnect();play()}},{threshold:0,rootMargin:'0px 0px -40px 0px'});
+  observer.observe(layout);
+  const finish=()=>{observer.disconnect();started=true;if(animation)animation.cancel()};
+  slidingContact.addEventListener('focusin',finish);
+  preference.addEventListener('change',finish,{once:true});
+ }
+}
