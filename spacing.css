@@ -327,3 +327,10 @@ header .header-quote{background:linear-gradient(110deg,#f5bdc7,#f2a7b5)!importan
 
 @media(min-width:1025px){header #navigation>a:not(.button){font-size:16px}}
 @media(min-width:1025px) and (max-width:1200px){header #navigation{gap:17px}header #navigation>a:not(.button){font-size:15px}}
+
+.footer-socials{display:flex;gap:12px;margin-top:20px}
+.site-footer .footer-socials a{display:grid;place-items:center;width:44px;height:44px;border:1px solid #fff7e84d;border-radius:50%;color:#fff7e8;background:#fff7e80a;transition:background-color 220ms ease,color 220ms ease,translate 220ms ease}
+.footer-socials svg{width:21px;height:21px}
+.site-footer .footer-socials a:focus-visible{outline:2px solid #f2a7b5;outline-offset:4px}
+@media(hover:hover){.site-footer .footer-socials a:hover{background:#f2a7b5;color:#315c4c;translate:0 -3px}}
+@media(prefers-reduced-motion:reduce){.site-footer .footer-socials a{transition:none}.site-footer .footer-socials a:hover{translate:none}}
