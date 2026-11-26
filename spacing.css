@@ -334,3 +334,22 @@ header .header-quote{background:linear-gradient(110deg,#f5bdc7,#f2a7b5)!importan
 .site-footer .footer-socials a:focus-visible{outline:2px solid #f2a7b5;outline-offset:4px}
 @media(hover:hover){.site-footer .footer-socials a:hover{background:#f2a7b5;color:#315c4c;translate:0 -3px}}
 @media(prefers-reduced-motion:reduce){.site-footer .footer-socials a{transition:none}.site-footer .footer-socials a:hover{translate:none}}
+/* Arc carousel: the active service stays fully legible. */
+.service-showcase .showcase-cards{position:relative;display:block;height:400px;min-height:0;max-width:1000px;margin:0 auto;padding:0;touch-action:pan-y;cursor:grab;user-select:none}
+.service-showcase .showcase-cards:active{cursor:grabbing}
+.service-showcase .showcase-card:nth-child(n){position:absolute;left:50%;top:25px;display:flex;width:210px;height:310px;min-height:0;margin:0;padding:54px 15px 26px;transform:translateX(calc(-50% + var(--offset)* 160px)) translateY(calc(var(--distance)* 23px)) rotate(calc(var(--offset)* 6deg)) scale(calc(1 - var(--distance)* .08));transition:transform .55s cubic-bezier(.2,.7,.2,1),box-shadow .3s,background .3s;translate:none;background:#fffdf8;color:#284e40;border-color:#d6e0d3}
+.service-showcase .showcase-card:nth-child(n) h3{color:#284e40;font-size:1.5rem;line-height:1.05}
+.service-showcase .showcase-card:nth-child(n) p{color:#62766b}
+.service-showcase .showcase-card.is-active{background:#315c4c;border-color:#71957a;color:#fffdf8}
+.service-showcase .showcase-card.is-active h3{color:#fff!important}
+.service-showcase .showcase-card.is-active p{color:#e4eee5!important}
+.service-showcase .showcase-card.is-active svg{color:#f2a7b5}
+.service-showcase .showcase-card:focus-visible{outline:3px solid #c9768d;outline-offset:4px}
+.showcase-controls{display:flex;align-items:center;justify-content:center;gap:22px;color:#315c4c;font-weight:700;min-height:44px}.showcase-controls button{width:44px;height:44px;border:1px solid #9db6a4;border-radius:50%;background:#fffdf8;color:#315c4c;font-size:1.25rem;cursor:pointer}.showcase-controls button:hover{background:#315c4c;color:white}.showcase-controls span{min-width:125px;text-align:center;font-size:.8rem;letter-spacing:.08em}
+@media(max-width:760px){.service-showcase .showcase-cards{height:300px;overflow:hidden}.service-showcase .showcase-card:nth-child(n){width:145px;height:225px;top:20px;padding:42px 10px 18px;transform:translateX(calc(-50% + var(--offset)* 78px)) translateY(calc(var(--distance)* 18px)) rotate(calc(var(--offset)* 7deg)) scale(calc(1 - var(--distance)* .08))}.service-showcase .showcase-card:nth-child(n) h3{font-size:1.05rem}.service-showcase .showcase-card:nth-child(n) p{font-size:.58rem}.service-showcase .showcase-card svg{width:48px;height:48px}}
+@media(prefers-reduced-motion:reduce){.service-showcase .showcase-card:nth-child(n){transition:none}}
+/* Hide the carousel controls while retaining drag interaction. */
+.showcase-controls{display:none}
+/* Keep the service carousel close to the following statistics. */
+.service-showcase{padding-bottom:24px}
+@media(max-width:760px){.service-showcase{padding-bottom:24px}}

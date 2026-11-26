@@ -124,3 +124,21 @@ if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduc
  for(const card of cards){card.classList.add('terms-reveal');observer.observe(card);card.addEventListener('focusin',()=>{card.classList.add('is-visible');observer.unobserve(card)})}
  matchMedia('(prefers-reduced-motion: reduce)').addEventListener('change',()=>{observer.disconnect();cards.forEach(card=>card.classList.add('is-visible'))},{once:true});
 }
+
+/* Draggable service carousel */
+(()=>{
+ const track=document.querySelector('.showcase-cards'); if(!track)return;
+ const cards=[...track.querySelectorAll('.showcase-card')]; let active=2, startX=null, moved=false;
+ track.setAttribute('aria-label','Service carousel. Drag or use the buttons to browse services.');
+ const controls=document.createElement('div'); controls.className='showcase-controls';
+ controls.innerHTML='<button type="button" aria-label="Previous service">&#8592;</button><span aria-live="polite"></span><button type="button" aria-label="Next service">&#8594;</button>';
+ track.after(controls); const label=controls.querySelector('span');
+ function render(){cards.forEach((card,i)=>{let offset=(i-active+cards.length)%cards.length;if(offset>2)offset-=cards.length;card.style.setProperty('--offset',offset);card.style.setProperty('--distance',Math.abs(offset));card.style.zIndex=String(5-Math.abs(offset));card.classList.toggle('is-active',offset===0)});label.textContent=cards[active].querySelector('h3').textContent.trim().replace(/\s+/g,' ')}
+ function go(step){active=(active+step+cards.length)%cards.length;render()}
+ controls.children[0].addEventListener('click',()=>go(-1));controls.children[2].addEventListener('click',()=>go(1));
+ track.addEventListener('pointerdown',e=>{startX=e.clientX;moved=false});
+ track.addEventListener('pointermove',e=>{if(startX!==null&&Math.abs(e.clientX-startX)>12)moved=true});
+ window.addEventListener('pointerup',e=>{if(startX===null)return;const delta=e.clientX-startX;startX=null;if(Math.abs(delta)>35){go(delta<0?1:-1);setTimeout(()=>{moved=false},100)}});
+ cards.forEach((card,i)=>card.addEventListener('click',e=>{if(moved){e.preventDefault();return}if(i!==active){e.preventDefault();active=i;render()}}));
+ render();
+})();
