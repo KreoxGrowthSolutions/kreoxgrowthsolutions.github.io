@@ -358,3 +358,27 @@ header .header-quote{background:linear-gradient(110deg,#f5bdc7,#f2a7b5)!importan
 /* Align all statistic labels and rules, including wrapped labels. */
 .agency-stat .stat-label{min-height:3em;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.5}
 .agency-stat .stat-rule{margin-top:auto}
+/* Hanging service badges inspired by the reference. */
+#what-we-do .marketing-service-grid{position:relative;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;padding:76px 0 15px;margin-top:20px;overflow:visible}
+#what-we-do .marketing-service-grid::before{content:"";position:absolute;left:10%;right:10%;top:22px;height:1px;background:#a9b9a7}
+#what-we-do .marketing-service-card:nth-child(n){position:relative;display:flex;flex-direction:column;min-height:420px;padding:18px;border-radius:16px;background:#f9f8f1;color:#315c4c;border:1px solid #d7e1d3;box-shadow:0 12px 30px #315c4c1c;transform-origin:50% -44px;transform:rotate(var(--swing-start));transition:transform .45s ease,box-shadow .45s ease;animation:badge-sway 5s ease-in-out infinite alternate;animation-delay:var(--swing-delay)}
+#what-we-do .marketing-service-card:nth-child(1){--swing-start:-3deg;--swing-end:2deg;--swing-delay:-1s}
+#what-we-do .marketing-service-card:nth-child(2){--swing-start:2deg;--swing-end:-2deg;--swing-delay:-2.2s}
+#what-we-do .marketing-service-card:nth-child(3){--swing-start:-2deg;--swing-end:2deg;--swing-delay:-3.1s}
+#what-we-do .marketing-service-card:nth-child(4){--swing-start:3deg;--swing-end:-2deg;--swing-delay:-.4s}
+#what-we-do .marketing-service-card::before{content:"";position:absolute;top:-55px;left:50%;height:55px;width:1px;background:#a9b9a7}
+#what-we-do .marketing-service-card::after{content:"";position:absolute;top:-8px;left:calc(50% - 7px);width:14px;height:14px;border:1px solid #a9b9a7;border-radius:50%;background:#f9f8f1;box-shadow:inset 0 0 0 4px #e2e9de}
+#what-we-do .marketing-service-card .agency-icon{width:100%;height:130px;margin:0 0 20px;border:0;border-radius:10px;background:#dce9d9;color:#315c4c}
+#what-we-do .marketing-service-card:nth-child(2) .agency-icon{background:#f3d7df}
+#what-we-do .marketing-service-card:nth-child(3) .agency-icon{background:#315c4c;color:#fff7e8}
+#what-we-do .marketing-service-card:nth-child(4) .agency-icon{background:#edb3c2}
+#what-we-do .marketing-service-card .agency-icon svg{width:54px;height:54px}
+#what-we-do .marketing-service-card:nth-child(n) h3{font-size:1.15rem;line-height:1.25;margin:0 0 12px;color:#315c4c}
+#what-we-do .marketing-service-card:nth-child(n) p{font-size:.89rem;line-height:1.6;color:#506d60;margin:0 0 18px}
+#what-we-do .marketing-service-card:nth-child(n) .agency-card-link{margin-top:auto;align-self:flex-start;background:#315c4c;color:#fff7e8}
+@keyframes badge-sway{from{transform:rotate(var(--swing-start))}to{transform:rotate(var(--swing-end))}}
+@media(hover:hover){#what-we-do .marketing-service-card:nth-child(n):hover{animation-play-state:paused;transform:rotate(0) translateY(-9px);box-shadow:0 20px 40px #315c4c30;z-index:5}}
+#what-we-do .marketing-service-card:nth-child(n):focus-visible{animation:none;transform:rotate(0);outline:3px solid #a65b72;outline-offset:5px}
+@media(max-width:900px){#what-we-do .marketing-service-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:65px 20px;padding-top:65px}#what-we-do .marketing-service-card:nth-child(n){min-height:390px}#what-we-do .marketing-service-card:nth-child(n+3)::before{height:35px;top:-35px}}
+@media(max-width:520px){#what-we-do .marketing-service-grid{grid-template-columns:1fr;gap:55px;max-width:360px}#what-we-do .marketing-service-card:nth-child(n){min-height:350px}#what-we-do .marketing-service-card .agency-icon{height:110px}}
+@media(prefers-reduced-motion:reduce){#what-we-do .marketing-service-card:nth-child(n){animation:none;transform:none;transition:none}}
