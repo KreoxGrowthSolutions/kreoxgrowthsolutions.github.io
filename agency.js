@@ -142,3 +142,37 @@ if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduc
  cards.forEach((card,i)=>card.addEventListener('click',e=>{if(moved){e.preventDefault();return}if(i!==active){e.preventDefault();active=i;render()}}));
  render();
 })();
+
+/* Count About page statistics when they enter view. */
+(()=>{
+ const section=document.querySelector('.ab-stats');
+ if(!section||window.matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window))return;
+ const values=[...section.querySelectorAll('strong')];
+ const observer=new IntersectionObserver(entries=>{
+  if(!entries.some(entry=>entry.isIntersecting))return;
+  observer.disconnect();
+  values.forEach(el=>{
+   const final=el.textContent.trim(), match=final.match(/^(\d+)(.*)$/); if(!match)return;
+   const target=Number(match[1]), suffix=match[2]; el.setAttribute('aria-label',final);
+   let started;
+   function tick(time){if(started===undefined)started=time;const progress=Math.min((time-started)/1400,1);const eased=1-Math.pow(1-progress,3);el.textContent=Math.round(target*eased)+suffix;if(progress<1)requestAnimationFrame(tick);else el.textContent=final}
+   requestAnimationFrame(tick);
+  });
+ },{threshold:.3});
+ observer.observe(section);
+})();
+/* Count homepage statistics once as they enter the viewport. */
+(()=>{
+ const section=document.querySelector('.agency-stats');
+ if(!section||matchMedia('(prefers-reduced-motion: reduce)').matches||!('IntersectionObserver' in window))return;
+ const observer=new IntersectionObserver(entries=>{
+  if(!entries.some(entry=>entry.isIntersecting))return;
+  observer.disconnect();
+  section.querySelectorAll('.agency-stat > strong').forEach(el=>{
+   const final=el.textContent.trim(), match=final.match(/^(\d+)(\+|%)$/);if(!match)return;
+   const target=Number(match[1]), suffix=match[2];el.setAttribute('aria-label',final);let start;
+   function tick(time){if(start===undefined)start=time;const p=Math.min((time-start)/1400,1);el.textContent=Math.round(target*(1-Math.pow(1-p,3)))+suffix;if(p<1)requestAnimationFrame(tick);else el.textContent=final}
+   requestAnimationFrame(tick);
+  });
+ },{threshold:.3});observer.observe(section);
+})();
