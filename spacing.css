@@ -353,3 +353,8 @@ header .header-quote{background:linear-gradient(110deg,#f5bdc7,#f2a7b5)!importan
 /* Keep the service carousel close to the following statistics. */
 .service-showcase{padding-bottom:24px}
 @media(max-width:760px){.service-showcase{padding-bottom:24px}}
+/* Four statistics across on desktop, stacked on small screens. */
+@media(min-width:521px){.agency-stats{grid-template-columns:repeat(4,minmax(0,1fr))}}
+/* Align all statistic labels and rules, including wrapped labels. */
+.agency-stat .stat-label{min-height:3em;display:flex;align-items:center;justify-content:center;text-align:center;line-height:1.5}
+.agency-stat .stat-rule{margin-top:auto}
