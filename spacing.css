@@ -392,7 +392,7 @@ header .header-quote{background:linear-gradient(110deg,#f5bdc7,#f2a7b5)!importan
 @media(prefers-reduced-motion:reduce){.industry-track{animation:none}.industry-window{overflow-x:auto;mask-image:none}.industry-group[aria-hidden="true"]{display:none}.industry-pause{display:none}}
 /* Photo cards aligned with the site's content width. */
 .industry-window{width:min(1200px,calc(100% - 80px));margin-left:auto;margin-right:auto;mask-image:none;border-radius:22px}
-.industry-art{background-image:url('assets/industries-editorial.png')!important;background-size:700% 100%!important;background-repeat:no-repeat!important;background-position:0% center!important}
+.industry-art{background-size:700% 100%!important;background-repeat:no-repeat!important;background-position:0% center!important}
 .industry-card:nth-child(2) .industry-art{background-position:16.6667% center!important}.industry-card:nth-child(3) .industry-art{background-position:33.3333% center!important}.industry-card:nth-child(4) .industry-art{background-position:50% center!important}.industry-card:nth-child(5) .industry-art{background-position:66.6667% center!important}.industry-card:nth-child(6) .industry-art{background-position:83.3333% center!important}.industry-card:nth-child(7) .industry-art{background-position:100% center!important}
 .industry-art::before,.industry-art::after{display:none}.industry-copy{min-height:0;padding:18px 10px 16px}
 @media(max-width:760px){.industry-window{width:calc(100% - 40px)}}
