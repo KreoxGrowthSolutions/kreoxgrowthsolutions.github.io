@@ -14,15 +14,12 @@ if(form){
   if(service&&[...form.elements.service.options].some(option=>option.value===service))form.elements.service.value=service;
   form.addEventListener('submit',event=>{
     event.preventDefault();if(!form.reportValidity())return;
-    const data=Object.fromEntries(new FormData(form)),recipient=form.dataset.recipient;
-    const subject=`Project enquiry: ${data.service} — ${data.name}`;
-    const body=`Name: ${data.name}\nEmail: ${data.email}\nBusiness: ${data.business||'Not provided'}\nPhone: ${data.phone||'Not provided'}\nService: ${data.service}\n\n${data.message}`;
-    const gmail='https://mail.google.com/mail/?'+new URLSearchParams({view:'cm',fs:'1',to:recipient,su:subject,body}).toString();
-    const mail='mailto:'+recipient+'?'+new URLSearchParams({subject,body}).toString().replaceAll('+','%20');
+    const data=Object.fromEntries(new FormData(form));
+    const body=`Hello Kreox Growth Solution, I would like to make an enquiry.\n\nName: ${data.name}\nEmail: ${data.email}\nBusiness: ${data.business||'Not provided'}\nPhone: ${data.phone||'Not provided'}\nService: ${data.service}\n\nProject details: ${data.message}`;
+    const url='https://wa.me/918734839513?text='+encodeURIComponent(body);
     document.querySelector('#form-fallback')?.remove();
-    const status=document.querySelector('#form-status');status.textContent='Your draft is ready. Review it in Gmail and press Send there. No email has been sent by this website.';delete status.dataset.state;
-    const box=document.createElement('div');box.id='form-fallback';
-    for(const [label,url]of [['Open Gmail draft',gmail],['Use email app',mail]]){const link=document.createElement('a');link.className='outline-button';link.textContent=label;link.href=url;if(url===gmail){link.target='_blank';link.rel='noopener noreferrer'}box.append(link)}
-    status.after(box);window.open(gmail,'_blank','noopener,noreferrer');
+    const status=document.querySelector('#form-status');status.textContent='WhatsApp will open with your enquiry. Review the message and press Send there.';
+    const link=document.createElement('a');link.id='form-fallback';link.className='outline-button';link.textContent='Open WhatsApp';link.href=url;link.target='_blank';link.rel='noopener noreferrer';status.after(link);
+    window.open(url,'_blank','noopener,noreferrer');
   });
 }
