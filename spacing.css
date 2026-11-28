@@ -415,3 +415,8 @@ header .header-quote{background:linear-gradient(110deg,#f5bdc7,#f2a7b5)!importan
 /* Compact mobile navigation and footer. */
 @media(max-width:1024px){header .menu-toggle{font-size:0;min-width:48px;width:48px;height:48px;padding:0;gap:0}header .menu-toggle span{font-size:24px;line-height:1}header .nav-wrap .brand{min-width:0}header .nav-wrap .brand-logo{max-width:100%;height:auto}}
 @media(max-width:760px){.site-footer .footer-link-column{display:none}.site-footer .footer-columns{grid-template-columns:minmax(0,1fr);gap:28px}.site-footer .footer-contact-column{grid-column:auto}.industries-intro h2{overflow-wrap:normal}.whatsapp-panel{max-height:calc(100dvh - 96px);overflow-y:auto}.whatsapp-form textarea{min-height:80px}}
+/* Fit five service cards while retaining the hanging animation. */
+@media(min-width:1101px){#what-we-do .marketing-service-grid{grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}}
+#what-we-do .marketing-service-card:nth-child(5){--swing-start:-2deg;--swing-end:2deg;--swing-delay:-1.7s}
+#what-we-do .marketing-service-card:nth-child(5) .agency-icon{background:#dce9d9;color:#315c4c}
+#service-videos{scroll-margin-top:120px}
